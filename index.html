@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untold Tails - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * GLOBAL STYLES & RESET
+         */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #e8e9eb; /* Light background for the scrolling content */
+            color: #012c45;
+            min-height: 100vh;
+        }
+        
+        /*
+         * HERO SECTION STYLES (Video Background)
+         * This container ensures the video and overlay are confined to the top 60vh.
+         */
+        .hero-header {
+            position: relative; /* All children are now positioned relative to this element */
+            width: 100%;
+            height: 60vh; /* Define the hero section height */
+            min-height: 350px;
+            overflow: hidden; /* Crucial: Clips the video to the defined height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-background,
+        .video-overlay {
+            position: absolute;
+            /* Use 'inset: 0' as a shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+            inset: 0; 
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-background {
+            z-index: 0;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            /* ADJUSTMENT: Reduced opacity to 0.3 to soften the overlay slightly */
+            background: rgba(0, 0, 0, 0.3); 
+            z-index: 1;
+        }
+
+        /* Hero Content (Logo and any central text) */
+        .hero-content {
+            z-index: 2; /* Ensure content is above the video and overlay */
+            max-width: 900px;
+            width: 100%;
+            animation: fadeIn 1.2s ease-out;
+            padding: 0 20px;
+        }
+
+        /*
+         * CONTENT STYLES (Scrolling Content)
+         */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px; /* Padding for the main scrolling content */
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 40px;
+            /* REMOVED animation: float 3s ease-in-out infinite; */
+        }
+        
+        /* REMOVED @keyframes float block */
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #e8e9eb; /* Changed color for better contrast against dark overlay */
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #fe8870;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #012c45;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: #fe8870;
+            color: #012c45;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(254, 136, 112, 0.3);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .coming-soon:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(254, 136, 112, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(254, 136, 112, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(254, 136, 112, 0.5);
+            }
+        }
+
+        .mission {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #012c45;
+            opacity: 0.75;
+            font-style: italic;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px;
+            border-top: 2px solid rgba(254, 136, 112, 0.3);
+            text-align: center;
+        }
+
+        .contact {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #012c45;
+            opacity: 0.6;
+        }
+
+        .contact a {
+            color: #fe8870;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #012c45;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.4rem;
+            }
+
+            .description {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                max-width: 250px; /* Slightly smaller logo on mobile */
+            }
+
+            .coming-soon {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        FIX: The video background, overlay, and logo are now all contained 
+        within this 'hero-header' section, which has a fixed height (60vh) 
+        and is the reference point for the absolute positioning.
+    -->
+    <div class="hero-header">
+        <!-- Video Background -->
+        <div class="video-background">
+            <!-- Using a placeholder video URL. Replace with your actual 'utloop.mp4' file path. -->
+            <video autoplay loop muted playsinline poster="https://placehold.co/1920x1080/012c45/fe8870?text=Untold+Tails+Video+Placeholder">
+                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <!-- Video Overlay (Darkened for better logo contrast) -->
+        <div class="video-overlay"></div>
+
+        <!-- Hero Content (Logo) -->
+        <div class="hero-content">
+            <!-- Using a placeholder image URL. Replace with your actual 'utlogo.png' file path. -->
+            <img src="https://placehold.co/300x100/e8e9eb/012c45?text=UNTOLD+TAILS+LOGO" alt="Untold Tails Logo" class="logo">
+            <h1 style="color: white; font-size: 2rem; margin-top: -30px;">Coming Soon</h1>
+        </div>
+    </div>
+
+    <!-- 
+        The rest of the content is now in a standard flow, appearing *after* the hero section, allowing it to scroll normally against the light background.
+    -->
+    <div class="container">
+        <p class="tagline">What if rescue animals could tell their own stories?</p>
+        
+        <p class="description">
+            Behind every pair of eyes is a journey worth hearing. A survival. A transformation. From comical moments to heart-opening experiences, we're bringing these stories to life through animated voices and creativity.
+        </p>
+        
+        <div class="mission">
+            Join us as we explore these fascinating tales—told by the animals who lived them.
+        </div>
+
+        <button class="coming-soon">Notify Me</button>
+
+        <div class="contact">
+            We love collaboration! Have a sanctuary, rescue organization, or pet with an amazing story to tell? <a href="mailto:hello@untoldtails.com">Let's connect</a>
+        </div>
+    </div>
+</body>
+</html>
