@@ -59,8 +59,8 @@
         }
 
         .video-overlay {
-            /* ADJUSTMENT: Reduced opacity to 0.3 to soften the overlay slightly */
-            background: rgba(0, 0, 0, 0.3); 
+            /* ADJUSTMENT: Increased opacity to 0.4 to make the darkening more apparent */
+            background: rgba(0, 0, 0, 0.4); 
             z-index: 1;
         }
 
@@ -103,13 +103,15 @@
         }
         
         /* REMOVED @keyframes float block */
-
-        h1 {
-            font-size: 3.5rem;
+        
+        /* New dedicated style for the title in the hero section */
+        .hero-title {
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
-            color: #e8e9eb; /* Changed color for better contrast against dark overlay */
+            color: white; /* Ensures high contrast against the dark overlay */
+            margin-top: -30px;
         }
 
         .tagline {
@@ -200,7 +202,7 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
 
@@ -245,7 +247,8 @@
         <div class="hero-content">
             <!-- Using a placeholder image URL. Replace with your actual 'utlogo.png' file path. -->
             <img src="utlogo.png" alt="Untold Tails Logo" class="logo">
-        
+            <!-- Using the new class for styling the title -->
+          
         </div>
     </div>
 
