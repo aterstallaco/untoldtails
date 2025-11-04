@@ -59,8 +59,8 @@
         }
 
         .video-overlay {
-            /* FIX: Switched to a high-opacity white overlay (0.75) to provide high contrast for the dark blue/coral logo. */
-            background: rgba(255, 255, 255, 0.75); 
+            /* FIX: Reduced white overlay opacity significantly from 0.75 to 0.3 to prevent washing out the video details. */
+            background: rgba(255, 255, 255, 0.3); 
             z-index: 1;
         }
 
@@ -108,7 +108,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
-            /* Changed color back to dark blue/primary color for contrast against the white overlay */
+            /* Title color remains dark blue for contrast against the now-subtle white overlay */
             color: #012c45; 
             margin-top: 0;
         }
@@ -231,8 +231,7 @@
     <div class="hero-header">
         <!-- Video Background -->
         <div class="video-background">
-            <!-- Using a placeholder video URL. Replace with your actual 'utloop.mp4' file path. -
-->
+            <!-- Using a placeholder video URL. Replace with your actual 'utloop.mp4' file path. -->
             <video autoplay loop muted playsinline poster="https://placehold.co/1920x1080/012c45/fe8870?text=Untold+Tails+Video+Placeholder">
                 <source src="utloop.mp4" type="video/mp4">
             </video>
